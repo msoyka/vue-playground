@@ -6,24 +6,25 @@ export default {
     fields: []
   },
   mutations: {
-    setFields(state, fields) {
-      state.fields = fields
+    addFieldToFields(state, collection) {
+      state.fields.push(collection)
     }
   },
   actions: {
-    async getFieldsByPageId({ commit }, pageId) {
-      console.log(pageId)
+    async setFieldsByPageId({ commit }, pageId) {
       try {
-        const fields = await FieldService.getFieldsByPageId(pageId)
-        commit('setFields', fields)
+        const collection = await FieldService.getFieldsByPageId(pageId)
+        commit('addFieldToFields', collection[0])
       } catch (error) {
         console.warn(error)
       }
     }
   },
   getters: {
-    pages(state) {
-      return state.pages
+    getFieldsByPageId: state => pageId => {
+      const fieldsEntry = state.fields.find(entry => entry.pageId === pageId)
+      const fields = fieldsEntry ? fieldsEntry.collection : []
+      return fields
     }
   }
 }

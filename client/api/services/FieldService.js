@@ -14,16 +14,6 @@ class FieldService {
       }
     })
   }
-
-  // static createPage(postObject) {
-  //   const timestamp = Date.now()
-  //   const newPost = { ...postObject, createdAt: timestamp }
-  //   return axios.post(url, newPost)
-  // }
-
-  // static deletePage(id) {
-  //   return axios.delete(`${url}${id}`)
-  // }
 }
 
 export default FieldService

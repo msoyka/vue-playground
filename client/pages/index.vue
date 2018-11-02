@@ -1,11 +1,6 @@
 <template>
   <section class="container">
-    <!-- <ul v-if="fields">
-      <li v-for="(field, index) in fields" :index="index" :key="field.id">
-        <FieldTypeRouter :type="field.type" :args="field.props"/>
-      </li>
-    </ul>-->
-
+    <DynamicFields :fields="fields"/>
     <PagesList/>
     <CreatePage/>
   </section>
@@ -14,23 +9,22 @@
 <script>
 import PagesList from '~/components/PagesList.vue'
 import CreatePage from '~/components/CreatePage.vue'
-import FieldTypeRouter from '~/components/routers/FieldTypeRouter.vue'
+import DynamicFields from '~/components/DynamicFields.vue'
 
 export default {
   components: {
     PagesList,
     CreatePage,
-    FieldTypeRouter
+    DynamicFields
   },
-  // computed: {
-  //   fields() {
-  //     return this.$store.getters['pages/pages']
-  //   }
-  // },
-  // NOTE: LOOK AT HOW DATA IS BEING SAVED IN STORE
+  computed: {
+    fields() {
+      return this.$store.getters['fields/getFieldsByPageId'](0)
+    }
+  },
   created() {
     this.$store.dispatch('pages/getPages')
-    this.$store.dispatch('fields/getFieldsByPageId', 0)
+    this.$store.dispatch('fields/setFieldsByPageId', 0)
   }
 }
 </script>

@@ -35,11 +35,22 @@
     {
       "id": 0,
       "pageId": 0,
-      "fields": [
+      "collection": [
         {
           "type": "TextField",
           "props": { "text": "This is the text" },
           "id": 0
+        },
+        {
+          "type": "BannerField",
+          "props": {
+            "heading": "Hello World",
+            "subheading": "explore our passions",
+            "image": {
+              "url": "https://placeholder.com/300"
+            }
+          },
+          "id": 1
         }
       ]
     }
