@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const url = 'http://localhost:3001/api/pages/'
+const url = 'http://localhost:3001/pages/'
 
 class PageService {
   static getPages() {
@@ -16,7 +16,9 @@ class PageService {
   }
 
   static createPage(postObject) {
-    return axios.post(url, postObject)
+    const timestamp = Date.now()
+    const newPost = { ...postObject, createdAt: timestamp }
+    return axios.post(url, newPost)
   }
 
   static deletePage(id) {

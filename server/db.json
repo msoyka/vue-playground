@@ -1,0 +1,47 @@
+{
+  "pages": [
+    {
+      "title": "Home",
+      "createdAt": 1541093352146,
+      "id": 1
+    },
+    {
+      "title": "About",
+      "createdAt": 1541093596103,
+      "id": 2
+    },
+    {
+      "title": "Contact",
+      "createdAt": 1541093768344,
+      "id": 3
+    },
+    {
+      "title": "News",
+      "createdAt": 1541093856486,
+      "id": 4
+    },
+    {
+      "title": "Team",
+      "createdAt": 1541093993266,
+      "id": 5
+    },
+    {
+      "title": "Get to know us",
+      "createdAt": 1541094017969,
+      "id": 6
+    }
+  ],
+  "fields": [
+    {
+      "id": 0,
+      "pageId": 0,
+      "fields": [
+        {
+          "type": "TextField",
+          "props": { "text": "This is the text" },
+          "id": 0
+        }
+      ]
+    }
+  ]
+}

@@ -23,6 +23,7 @@ export default {
       try {
         const page = await PageService.createPage(pageObj)
         commit('setPages', [...state.pages, page.data])
+        return page
       } catch (error) {
         console.warn(error)
       }

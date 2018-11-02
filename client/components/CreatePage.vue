@@ -30,11 +30,12 @@ export default {
   },
   methods: {
     async createPage() {
-      const createdPage = await this.$store.dispatch(
-        'pages/createPage',
-        this.data
-      )
-      console.log(createdPage)
+      try {
+        await this.$store.dispatch('pages/createPage', this.data)
+        this.data = {}
+      } catch (error) {
+        this.error = 'Error creating page.'
+      }
     }
   }
 }
