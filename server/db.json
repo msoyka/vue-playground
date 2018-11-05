@@ -2,33 +2,38 @@
   "pages": [
     {
       "title": "Home",
+      "slug": "home",
+      "path": "/",
       "createdAt": 1541093352146,
       "id": 1
     },
     {
       "title": "About",
+      "slug": "about",
+      "path": "/about",
       "createdAt": 1541093596103,
       "id": 2
     },
     {
       "title": "Contact",
+      "slug": "contact",
+      "path": "/contact",
       "createdAt": 1541093768344,
       "id": 3
     },
     {
       "title": "News",
+      "slug": "news",
+      "path": "/news",
       "createdAt": 1541093856486,
       "id": 4
     },
     {
       "title": "Team",
+      "slug": "team",
+      "path": "/team",
       "createdAt": 1541093993266,
       "id": 5
-    },
-    {
-      "title": "Get to know us",
-      "createdAt": 1541094017969,
-      "id": 6
     }
   ],
   "fields": [
@@ -38,7 +43,9 @@
       "collection": [
         {
           "type": "TextField",
-          "props": { "text": "This is the text" },
+          "props": {
+            "text": "This is the text"
+          },
           "id": 0
         },
         {

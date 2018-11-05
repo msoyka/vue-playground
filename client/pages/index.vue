@@ -1,32 +1,9 @@
 <template>
-  <section class="container">
-    <DynamicFields :fields="fields"/>
-    <PagesList/>
-    <CreatePage/>
-  </section>
+  <section class="container">Index Page</section>
 </template>
 
 <script>
-import PagesList from '~/components/PagesList.vue'
-import CreatePage from '~/components/CreatePage.vue'
-import DynamicFields from '~/components/DynamicFields.vue'
-
-export default {
-  components: {
-    PagesList,
-    CreatePage,
-    DynamicFields
-  },
-  computed: {
-    fields() {
-      return this.$store.getters['fields/getFieldsByPageId'](0)
-    }
-  },
-  created() {
-    this.$store.dispatch('pages/getPages')
-    this.$store.dispatch('fields/setFieldsByPageId', 0)
-  }
-}
+export default {}
 </script>
 
 <style>
