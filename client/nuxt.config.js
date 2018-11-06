@@ -70,5 +70,12 @@ module.exports = {
   */
   generate: {
     routes: ['/about', '/contact']
+  },
+
+  /*
+  ** Register Middlewarec
+  */
+  router: {
+    middleware: ['page-meta']
   }
 }
