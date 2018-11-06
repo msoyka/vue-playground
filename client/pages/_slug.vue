@@ -1,24 +1,23 @@
 <template>
   <section class="container">
     <p>Index Slug Page</p>
-    <!-- <p>{{ pageMeta }}</p> -->
+    <p>{{ pageMeta }}</p>
   </section>
 </template>
 
 <script>
+import { GET_CURRENT_PAGE } from '~/store/pages/getterTypes'
+import { SET_CURRENT_PAGE } from '~/store/pages/actionTypes'
+
 export default {
-  // async fetch({ params, store }) {
-  //   store.dispatch('pages/addPageBySlug', params.slug)
-  // }
-  // computed: {
-  //   pageMeta: function() {
-  //     // get page by slug from store
-  //     return 'hey'
-  //   }
-  // },
-  // created() {
-  //   this.$store.dispatch('pages/addPageBySlug', 'about')
-  // }
+  async fetch({ store, params }) {
+    store.dispatch(SET_CURRENT_PAGE, params.slug)
+  },
+  computed: {
+    pageMeta: function() {
+      return this.$store.getters[GET_CURRENT_PAGE]
+    }
+  }
 }
 </script>
 

@@ -1,55 +1,43 @@
-/* eslint-disable */
-
 import PageService from '~/api/services/PageService'
 
 export default {
   namespaced: true,
   state: {
-    pages: []
+    pages: [],
+    current: {}
   },
   mutations: {
     setPages(state, pages) {
       state.pages = pages
+    },
+    setCurrent(state, currentPage) {
+      state.current = currentPage
     }
-    // addPage(state, page) {
-    //   const pageInPages = state.pages.some(el => el.slug === page.slug)
-    //   if (!pageInPages) {
-    //     state.pages = [...state.pages, page]
-    //   }
-    // }
   },
   actions: {
-    async getPages({ commit }) {
+    async setPages({ commit }) {
       try {
         const pages = await PageService.getPages()
         commit('setPages', pages)
       } catch (error) {
         console.warn(error)
       }
+    },
+    setCurrent({ state, commit }, slug) {
+      try {
+        const current = state.pages.find(page => page.slug === slug)
+        commit('setCurrent', current)
+      } catch (error) {
+        console.warn(error)
+      }
     }
-
-    // async addPageBySlug({ commit }, slug) {
-    //   try {
-    //     const page = await PageService.getPageBySlug(slug)
-    //     commit('addPage', page)
-    //   } catch (error) {
-    //     console.warn(error)
-    //   }
-    // }
-
-    // async createPage({ commit, state }, pageObj) {
-    //   try {
-    //     const page = await PageService.createPage(pageObj)
-    //     commit('setPages', [...state.pages, page.data])
-    //     return page
-    //   } catch (error) {
-    //     console.warn(error)
-    //   }
-    // }
   },
   getters: {
-    // pages(state) {
-    //   return state.pages
-    // }
+    getPages(state) {
+      return state.pages
+    },
+    getCurrent(state) {
+      return state.current
+    }
   }
 }

@@ -1,5 +1,6 @@
 import Vuex from 'vuex'
 import pages from './pages'
+import { SET_PAGES } from './pages/actionTypes'
 // import fields from './fields'
 
 const createStore = () => {
@@ -7,7 +8,7 @@ const createStore = () => {
     modules: { pages },
     actions: {
       async nuxtServerInit({ dispatch }) {
-        await dispatch('pages/getPages')
+        await dispatch(SET_PAGES)
       }
     }
   })
