@@ -1,7 +1,6 @@
 import Vuex from 'vuex'
 import pages from './pages'
 import { SET_PAGES } from './pages/actionTypes'
-// import fields from './fields'
 
 const createStore = () => {
   return new Vuex.Store({

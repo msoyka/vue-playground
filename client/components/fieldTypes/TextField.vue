@@ -1,5 +1,5 @@
 <template>
-  <div class="text">{{ text }}</div>
+  <p class="text">{{ text }}</p>
 </template>
 
 <script>
@@ -10,9 +10,3 @@ export default {
   }
 }
 </script>
-
-<style>
-.text {
-  color: green;
-}
-</style>

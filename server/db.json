@@ -5,42 +5,116 @@
       "slug": "home",
       "path": "/",
       "createdAt": 1541093352146,
-      "id": 1
+      "id": 1,
+      "fields": [
+        {
+          "type": "TextField",
+          "props": {
+            "text": "This is the text"
+          },
+          "id": 0
+        },
+        {
+          "type": "BannerField",
+          "props": {
+            "heading": "Hello World",
+            "subheading": "explore our passions",
+            "image": {
+              "url": "https://placeholder.com/300"
+            }
+          },
+          "id": 1
+        }
+      ]
     },
     {
       "title": "About",
       "slug": "about",
       "path": "/about",
       "createdAt": 1541093596103,
-      "id": 2
+      "id": 2,
+      "fields": [
+        {
+          "type": "TextField",
+          "props": {
+            "text": "This is the text"
+          },
+          "id": 0
+        },
+        {
+          "type": "BannerField",
+          "props": {
+            "heading": "Hello World",
+            "subheading": "explore our passions",
+            "image": {
+              "url": "https://placeholder.com/300"
+            }
+          },
+          "id": 1
+        }
+      ]
     },
     {
       "title": "Contact",
       "slug": "contact",
       "path": "/contact",
       "createdAt": 1541093768344,
-      "id": 3
+      "id": 3,
+      "fields": [
+        {
+          "type": "TextField",
+          "props": {
+            "text": "This is the text"
+          },
+          "id": 0
+        },
+        {
+          "type": "BannerField",
+          "props": {
+            "heading": "Hello World",
+            "subheading": "explore our passions",
+            "image": {
+              "url": "https://placeholder.com/300"
+            }
+          },
+          "id": 1
+        }
+      ]
     },
     {
       "title": "News",
       "slug": "news",
       "path": "/news",
       "createdAt": 1541093856486,
-      "id": 4
+      "id": 4,
+      "fields": [
+        {
+          "type": "TextField",
+          "props": {
+            "text": "This is the text"
+          },
+          "id": 0
+        },
+        {
+          "type": "BannerField",
+          "props": {
+            "heading": "Hello World",
+            "subheading": "explore our passions",
+            "image": {
+              "url": "https://placeholder.com/300"
+            }
+          },
+          "id": 1
+        }
+      ]
     },
     {
       "title": "Team",
       "slug": "team",
       "path": "/team",
       "createdAt": 1541093993266,
-      "id": 5
-    }
-  ],
-  "fields": [
-    {
-      "id": 0,
-      "pageId": 0,
-      "collection": [
+      "id": 5,
+      "fields": [
         {
           "type": "TextField",
           "props": {

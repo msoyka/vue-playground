@@ -21,7 +21,7 @@ export default {
   },
   computed: {
     backgroundImageStyles() {
-      return 'background-color: red'
+      return 'background-color: rgb(240, 240, 240)'
     }
   }
 }
@@ -31,5 +31,8 @@ export default {
 .banner {
   min-height: 300px;
   width: 100%;
+  color: gray;
+  padding: 1rem;
+  margin: 1rem 0;
 }
 </style>
