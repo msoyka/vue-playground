@@ -23,9 +23,9 @@ export default {
         console.warn(error)
       }
     },
-    setCurrent({ state, commit }, slug) {
+    setCurrent({ state, commit }, path) {
       try {
-        const current = state.pages.find(page => page.slug === slug)
+        const current = state.pages.find(page => page.path === path)
         commit('setCurrent', current)
       } catch (error) {
         console.warn(error)

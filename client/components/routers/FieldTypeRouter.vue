@@ -26,11 +26,9 @@ export default {
           field = BannerField
           break
       }
-
       if (field === null) {
         throw `${fieldType} isnt registered in FieldTypeRouter.`
       }
-
       return field
     }
   },

@@ -1,9 +1,16 @@
 <template>
-  <section class="container">Index Page</section>
+  <section class="container">
+    <p>{{ pageMeta.title }} Page</p>
+    <p>{{ pageMeta }}</p>
+  </section>
 </template>
 
 <script>
-export default {}
+export default {
+  asyncData({ pageMeta }) {
+    return { pageMeta }
+  }
+}
 </script>
 
 <style>

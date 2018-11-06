@@ -1,6 +1,6 @@
 <template>
   <section class="container">
-    <p>Index Slug Page</p>
+    <p>{{ pageMeta.title }} Page</p>
     <p>{{ pageMeta }}</p>
   </section>
 </template>
