@@ -1,6 +1,9 @@
 <template>
-  <div>
-    <nuxt/>
+  <div id="layout">
+    <div id="layout-left-panel">Side Panel</div>
+    <div id="layout-content">
+      <nuxt/>
+    </div>
   </div>
 </template>
 
@@ -22,5 +25,24 @@ html {
 *:after {
   box-sizing: border-box;
   margin: 0;
+}
+
+#layout {
+  overflow: hidden;
+}
+
+#layout-left-panel {
+  width: 300px;
+  position: fixed;
+  z-index: 10000;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#layout-content {
+  margin-left: 300px;
 }
 </style>
