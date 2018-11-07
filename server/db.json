@@ -12,18 +12,15 @@
           "props": {
             "text": "This is the text"
           },
-          "id": 0
+          "key": "bv35sx7cg2"
         },
         {
           "type": "BannerField",
           "props": {
             "heading": "Hello World",
-            "subheading": "explore our passions",
-            "image": {
-              "url": "https://placeholder.com/300"
-            }
+            "subheading": "explore our passions"
           },
-          "id": 1
+          "key": "smlieytvqi"
         }
       ]
     },
@@ -39,18 +36,15 @@
           "props": {
             "text": "This is the text"
           },
-          "id": 0
+          "key": "bv35sx7cg2"
         },
         {
           "type": "BannerField",
           "props": {
             "heading": "Hello World",
-            "subheading": "explore our passions",
-            "image": {
-              "url": "https://placeholder.com/300"
-            }
+            "subheading": "explore our passions"
           },
-          "id": 1
+          "key": "smlieytvqi"
         }
       ]
     },
@@ -66,18 +60,15 @@
           "props": {
             "text": "This is the text"
           },
-          "id": 0
+          "key": "bv35sx7cg2"
         },
         {
           "type": "BannerField",
           "props": {
             "heading": "Hello World",
-            "subheading": "explore our passions",
-            "image": {
-              "url": "https://placeholder.com/300"
-            }
+            "subheading": "explore our passions"
           },
-          "id": 1
+          "key": "smlieytvqi"
         }
       ]
     },
@@ -93,18 +84,15 @@
           "props": {
             "text": "This is the text"
           },
-          "id": 0
+          "key": "bv35sx7cg2"
         },
         {
           "type": "BannerField",
           "props": {
             "heading": "Hello World",
-            "subheading": "explore our passions",
-            "image": {
-              "url": "https://placeholder.com/300"
-            }
+            "subheading": "explore our passions"
           },
-          "id": 1
+          "key": "smlieytvqi"
         }
       ]
     },
@@ -120,18 +108,15 @@
           "props": {
             "text": "This is the text"
           },
-          "id": 0
+          "key": "bv35sx7cg2"
         },
         {
           "type": "BannerField",
           "props": {
             "heading": "Hello World",
-            "subheading": "explore our passions",
-            "image": {
-              "url": "https://placeholder.com/300"
-            }
+            "subheading": "explore our passions"
           },
-          "id": 1
+          "key": "smlieytvqi"
         }
       ]
     }

@@ -12,6 +12,9 @@ export default {
     },
     setCurrent(state, currentPage) {
       state.current = currentPage
+    },
+    setCurrentFields(state, currentFields) {
+      state.current.fields = currentFields
     }
   },
   actions: {
@@ -38,6 +41,12 @@ export default {
     },
     getCurrent(state) {
       return state.current
+    },
+    getCurrentFields(state, getters) {
+      return getters.getCurrent.fields
     }
+    // getCurrentFieldsFieldByKey: (state, getters) => (fieldKey) => {
+    //   return getters.getCurrentFields.find(field => field.key === fieldKey)
+    // }
   }
 }

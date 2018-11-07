@@ -10,14 +10,14 @@ export default {
   name: 'BannerField',
   props: {
     heading: { type: String, required: true, default: 'Banner heading' },
-    subheading: { type: String, required: true, default: 'Banner subheading' },
-    image: {
-      type: Object,
-      required: true,
-      default: function() {
-        return { url: 'https://placeholder.com/300' }
-      }
-    }
+    subheading: { type: String, required: true, default: 'Banner subheading' }
+    // image: {
+    //   type: Object,
+    //   required: true,
+    //   default: function() {
+    //     return { url: 'https://placeholder.com/300' }
+    //   }
+    // }
   },
   computed: {
     backgroundImageStyles() {
