@@ -1,15 +1,11 @@
 <script>
-import TextField from '~/components/fieldTypes/TextField.vue'
-import BannerField from '~/components/fieldTypes/BannerField.vue'
+import TextField from '~/components/text/TextField.vue'
+import BannerField from '~/components/banner/BannerField.vue'
 
 export default {
-  name: 'FieldTypeRouter',
+  name: 'DynamicFieldRouter',
   props: {
-    type: {
-      type: String,
-      required: true
-    },
-    args: {
+    field: {
       type: Object,
       required: true,
       default: () => {}
@@ -33,10 +29,10 @@ export default {
     }
   },
   render(h) {
-    const { type, args } = this
+    const { type, data } = this.field
     try {
       const field = this._loadFieldByType(type)
-      return h(field, { props: args })
+      return h(field, { props: data })
     } catch (error) {
       console.error(`FieldTypeRouter could not locate Field Type ${type}`)
     }

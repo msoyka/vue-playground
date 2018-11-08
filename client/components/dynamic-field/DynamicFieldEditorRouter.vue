@@ -1,9 +1,9 @@
 <script>
-import TextFieldEditor from '~/components/fieldTypes/TextFieldEditor.vue'
-import BannerFieldEditor from '~/components/fieldTypes/BannerFieldEditor.vue'
+import TextFieldEditor from '~/components/text/TextFieldEditor.vue'
+import BannerFieldEditor from '~/components/banner/BannerFieldEditor.vue'
 
 export default {
-  name: 'FieldInputRouter',
+  name: 'DynamicFieldEditorRouter',
   props: {
     field: {
       type: Object,
@@ -12,7 +12,7 @@ export default {
     }
   },
   methods: {
-    _loadFieldByType(fieldType) {
+    _loadComponentByType(fieldType) {
       let field = null
       switch (fieldType) {
         case 'TextField':
@@ -31,8 +31,8 @@ export default {
   render(h) {
     const { type, data } = this.field
     try {
-      const fieldEditor = this._loadFieldByType(type)
-      return h(fieldEditor, { props: { data } })
+      const editor = this._loadComponentByType(type)
+      return h(editor, { props: { data } })
     } catch (error) {
       console.error(`FieldInputRouter could not locate Field Type ${type}`)
     }

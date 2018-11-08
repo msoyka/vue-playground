@@ -1,17 +1,17 @@
 <template>
   <div v-if="fields" class="dynamic-fields-container">
     <div v-for="(field, index) in fields" :index="index" :key="field.id">
-      <FieldTypeRouter :type="field.type" :args="field.data"/>
+      <DynamicFieldRouter :field="field"/>
     </div>
   </div>
 </template>
 
 <script>
-import FieldTypeRouter from '~/components/FieldTypeRouter.vue'
+import DynamicFieldRouter from './DynamicFieldRouter.vue'
 
 export default {
-  name: 'DynamicFields',
-  components: { FieldTypeRouter },
+  name: 'DynamicField',
+  components: { DynamicFieldRouter },
   props: {
     fields: {
       type: Array,

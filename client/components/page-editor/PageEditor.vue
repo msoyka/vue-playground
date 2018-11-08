@@ -4,13 +4,17 @@
       <button @click="showEditor = !showEditor">Edit</button>
       <div v-if="showEditor" class="page-editor__editor">
         <form @submit.prevent="onSubmit">
-          <slot name="editor">Editor Slot</slot>
+          <DynamicFieldEditor :fields="meta.fields"/>
           <button type="submit">Update</button>
           <button type="button" @click="showEditor = !showEditor">Cancel</button>
         </form>
       </div>
       <div class="page-editor__display">
-        <slot name="display">Display Slot</slot>
+        <h1>{{ meta.title }} Page</h1>
+        <br>
+        <hr>
+        <br>
+        <DynamicField :fields="meta.fields"/>
       </div>
     </div>
     <div class="metabox">
@@ -24,8 +28,11 @@
 </template>
 
 <script>
+import DynamicField from '~/components/dynamic-field/DynamicField.vue'
+import DynamicFieldEditor from '~/components/dynamic-field/DynamicFieldEditor.vue'
 export default {
   name: 'PageEditor',
+  components: { DynamicField, DynamicFieldEditor },
   props: {
     meta: {
       type: Object,
@@ -35,7 +42,7 @@ export default {
   },
   data() {
     return {
-      showMeta: true,
+      showMeta: false,
       showEditor: true
     }
   }
@@ -84,5 +91,10 @@ export default {
     text-transform: uppercase;
     font-weight: bold;
   }
+}
+
+.full {
+  width: 100%;
+  min-height: 100px;
 }
 </style>

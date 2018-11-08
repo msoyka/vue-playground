@@ -1,32 +1,13 @@
 <template>
-  <section class="container">
-    <p>{{ pageMeta.title }} Page</p>
-    <DynamicFields :fields="pageMeta.fields"/>
-    <p class="meta">{{ pageMeta }}</p>
-  </section>
+  <PageEditor :meta="pageMeta"/>
 </template>
 
 <script>
-import DynamicFields from '~/components/DynamicFields.vue'
+import PageEditor from '~/components/page-editor/PageEditor.vue'
 import getPageMeta from '~/mixins/getPageMeta.js'
 
 export default {
-  components: { DynamicFields },
+  components: { PageEditor },
   mixins: [getPageMeta]
 }
 </script>
-
-<style>
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 1rem;
-}
-
-.meta {
-  background-color: rgb(240, 240, 240);
-  color: gray;
-  padding: 1rem;
-  margin: 1rem 0;
-}
-</style>
