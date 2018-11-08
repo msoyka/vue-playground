@@ -9,14 +9,14 @@
       "fields": [
         {
           "type": "TextField",
-          "props": {
+          "data": {
             "text": "This is the text"
           },
           "key": "bv35sx7cg2"
         },
         {
           "type": "BannerField",
-          "props": {
+          "data": {
             "heading": "Hello World",
             "subheading": "explore our passions"
           },
@@ -33,14 +33,14 @@
       "fields": [
         {
           "type": "TextField",
-          "props": {
+          "data": {
             "text": "This is the text"
           },
           "key": "bv35sx7cg2"
         },
         {
           "type": "BannerField",
-          "props": {
+          "data": {
             "heading": "Hello World",
             "subheading": "explore our passions"
           },
@@ -57,14 +57,14 @@
       "fields": [
         {
           "type": "TextField",
-          "props": {
+          "data": {
             "text": "This is the text"
           },
           "key": "bv35sx7cg2"
         },
         {
           "type": "BannerField",
-          "props": {
+          "data": {
             "heading": "Hello World",
             "subheading": "explore our passions"
           },
@@ -81,14 +81,14 @@
       "fields": [
         {
           "type": "TextField",
-          "props": {
+          "data": {
             "text": "This is the text"
           },
           "key": "bv35sx7cg2"
         },
         {
           "type": "BannerField",
-          "props": {
+          "data": {
             "heading": "Hello World",
             "subheading": "explore our passions"
           },
@@ -105,14 +105,14 @@
       "fields": [
         {
           "type": "TextField",
-          "props": {
+          "data": {
             "text": "This is the text"
           },
           "key": "bv35sx7cg2"
         },
         {
           "type": "BannerField",
-          "props": {
+          "data": {
             "heading": "Hello World",
             "subheading": "explore our passions"
           },

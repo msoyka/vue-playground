@@ -33,7 +33,7 @@ export default {
     }
   },
   render(h) {
-    const { type, args } = this.$props
+    const { type, args } = this
     try {
       const field = this._loadFieldByType(type)
       return h(field, { props: args })

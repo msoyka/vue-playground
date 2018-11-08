@@ -2,10 +2,13 @@
   <PageEditor>
     <div slot="editor">
       <h5>Page Editor</h5>
-      <input
-        :value="pageFields[0].props.text"
-        @input="updateSettings({ heading_color: $event.target.value })"
-      >
+      <br>
+      <div v-if="pageFields" class="dynamic-fields-container">
+        <div v-for="(field, index) in pageFields" :index="index" :key="index">
+          <FieldInputRouter :field="field"/>
+          <br>
+        </div>
+      </div>
     </div>
     <div slot="display">
       <p>{{ pageMeta.title }} Page</p>
@@ -20,17 +23,13 @@
 
 <script>
 import DynamicFields from '~/components/DynamicFields.vue'
+import FieldInputRouter from '~/components/FieldInputRouter.vue'
 import PageEditor from '~/components/PageEditor.vue'
 import getPageMeta from '~/mixins/getPageMeta.js'
 
 export default {
-  components: { DynamicFields, PageEditor },
-  mixins: [getPageMeta],
-  methods: {
-    updateSettings(value) {
-      console.log(value)
-    }
-  }
+  components: { DynamicFields, PageEditor, FieldInputRouter },
+  mixins: [getPageMeta]
 }
 </script>
 
