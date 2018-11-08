@@ -1,8 +1,11 @@
 <template>
   <div>
-    <div class="page-editor">
+    <!-- // Page Title -->
+    <h1 v-show="false">{{ meta.title }} Page</h1>
+    <!-- // Editor -->
+    <div class="editor">
       <button @click="showEditor = !showEditor">Edit</button>
-      <div v-if="showEditor" class="page-editor__editor">
+      <div v-if="showEditor" class="editor__editor">
         <form @submit.prevent="onSubmit">
           <input v-model="meta.title">
           <input v-model="meta.description">
@@ -11,14 +14,11 @@
           <button type="button" @click="showEditor = !showEditor">Cancel</button>
         </form>
       </div>
-      <div class="page-editor__display">
-        <h1>{{ meta.title }} Page</h1>
-        <br>
-        <hr>
-        <br>
+      <div class="editor__display">
         <DynamicField :fields="meta.fields"/>
       </div>
     </div>
+    <!-- // Metabox -->
     <div class="metabox">
       <button class="metabox__toggle" @click="showMeta = !showMeta">Meta Toggle</button>
       <div v-if="showMeta" class="metabox__container">
@@ -64,11 +64,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.page-editor {
+.editor {
   overflow: hidden;
 }
 
-.page-editor__editor {
+.editor__editor {
   width: 300px;
   position: fixed;
   z-index: 100;
@@ -80,7 +80,7 @@ export default {
   padding: 1rem;
 }
 
-.page-editor__display {
+.editor__display {
   margin-left: 300px;
 }
 
