@@ -4,6 +4,8 @@
       <button @click="showEditor = !showEditor">Edit</button>
       <div v-if="showEditor" class="page-editor__editor">
         <form @submit.prevent="onSubmit">
+          <input v-model="meta.title">
+          <input v-model="meta.description">
           <DynamicFieldEditor :fields="meta.fields"/>
           <button type="submit">Update</button>
           <button type="button" @click="showEditor = !showEditor">Cancel</button>
@@ -44,6 +46,18 @@ export default {
     return {
       showMeta: false,
       showEditor: true
+    }
+  },
+  head() {
+    return {
+      title: this.meta.title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.meta.description
+        }
+      ]
     }
   }
 }
