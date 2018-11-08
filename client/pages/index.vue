@@ -1,9 +1,9 @@
 <template>
-  <PageEditor>
+  <PageEditor :meta="pageMeta">
     <div slot="editor">
       <h5>Page Editor</h5>
       <br>
-      <div v-if="pageFields" class="dynamic-fields-container">
+      <div v-if="pageFields">
         <div v-for="(field, index) in pageFields" :index="index" :key="index">
           <FieldInputRouter :field="field"/>
           <br>
@@ -11,12 +11,11 @@
       </div>
     </div>
     <div slot="display">
-      <p>{{ pageMeta.title }} Page</p>
-      <DynamicFields :fields="pageMeta.fields"/>
-      <div class="meta">
-        <b>metadata:</b>
-        {{ pageMeta }}
-      </div>
+      <h1>{{ pageMeta.title }} Page</h1>
+      <br>
+      <hr>
+      <br>
+      <DynamicFields :fields="pageFields"/>
     </div>
   </PageEditor>
 </template>
@@ -34,13 +33,6 @@ export default {
 </script>
 
 <style>
-.meta {
-  background-color: rgb(240, 240, 240);
-  color: gray;
-  padding: 1rem;
-  margin: 1rem 0;
-}
-
 .full {
   width: 100%;
   min-height: 100px;
