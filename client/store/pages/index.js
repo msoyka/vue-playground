@@ -4,8 +4,7 @@ export default {
   namespaced: true,
   state: {
     pages: [],
-    current: {},
-    test: 'hey'
+    current: {}
   },
   mutations: {
     setPages(state, pages) {
@@ -13,16 +12,6 @@ export default {
     },
     setCurrent(state, currentPage) {
       state.current = currentPage
-    },
-    setCurrentFields(state) {
-      state.current.fields = {
-        get() {
-          return state.test
-        },
-        set(value) {
-          return (state.test = value)
-        }
-      }
     }
   },
   actions: {
@@ -49,12 +38,6 @@ export default {
     },
     getCurrent(state) {
       return state.current
-    },
-    getCurrentFields(state, getters) {
-      return getters.getCurrent.fields
     }
-    // getCurrentFieldsFieldByKey: (state, getters) => (fieldKey) => {
-    //   return getters.getCurrentFields.find(field => field.key === fieldKey)
-    // }
   }
 }
