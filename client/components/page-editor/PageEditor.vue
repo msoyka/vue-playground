@@ -1,158 +1,81 @@
 <template>
-  <v-app>
-    <v-navigation-drawer v-model="drawer" fixed app>Navigation Bar</v-navigation-drawer>
-    <v-toolbar
-      :clipped-left="$vuetify.breakpoint.lgAndUp"
-      color="blue darken-3"
-      dark
-      app
-      fixed
-    >
-      <v-toolbar-title style="width: 300px" class="ml-0 pl-3">
-        <v-toolbar-side-icon @click.stop="drawer = !drawer"/>
-        <span class="hidden-sm-and-down">Google Contacts</span>
-      </v-toolbar-title>
-      <v-text-field
-        flat
-        solo-inverted
-        hide-details
-        prepend-inner-icon="search"
-        label="Search"
-        class="hidden-sm-and-down"
-      />
-      <v-spacer/>
-      <v-btn icon>
-        <v-icon>apps</v-icon>
-      </v-btn>
-      <v-btn icon>
-        <v-icon>notifications</v-icon>
-      </v-btn>
-      <v-btn icon large>
-        <v-avatar size="32px" tile>
-          <img
-            src="https://cdn.vuetifyjs.com/images/logos/logo.svg"
-            alt="Vuetify"
-          >
-        </v-avatar>
-      </v-btn>
-    </v-toolbar>
-    <v-content>
-      <v-container fluid fill-height>
-        <v-layout justify-center align-center>
-          <v-tooltip right>
-            <v-btn slot="activator" :href="source" icon large target="_blank">
-              <v-icon large>code</v-icon>
-            </v-btn>
-            <span>Source</span>
-          </v-tooltip>
-          <v-tooltip right>
-            <v-btn
-              slot="activator"
-              icon
-              large
-              href="https://codepen.io/johnjleider/pen/EQOYVV"
-              target="_blank"
-            >
-              <v-icon large>mdi-codepen</v-icon>
-            </v-btn>
-            <span>Codepen</span>
-          </v-tooltip>
-        </v-layout>
-      </v-container>
-    </v-content>
-    <v-btn fab bottom right color="pink" dark fixed @click="dialog = !dialog">
-      <v-icon>add</v-icon>
-    </v-btn>
-    <v-dialog v-model="dialog" width="800px">
-      <v-card>
-        <v-card-title class="grey lighten-4 py-4 title">Create contact</v-card-title>
-        <v-container grid-list-sm class="pa-4">
-          <v-layout row wrap="">
-            <v-flex xs12 align-center justify-space-between>
-              <v-layout align-center>
-                <v-avatar size="40px" class="mr-3">
-                  <img
-                    src="//ssl.gstatic.com/s2/oz/images/sge/grey_silhouette.png"
-                    alt=""
-                  >
-                </v-avatar>
-                <v-text-field placeholder="Name"/>
-              </v-layout>
-            </v-flex>
-            <v-flex xs6>
-              <v-text-field prepend-icon="business" placeholder="Company"/>
-            </v-flex>
-            <v-flex xs6>
-              <v-text-field placeholder="Job title"/>
-            </v-flex>
-            <v-flex xs12>
-              <v-text-field prepend-icon="mail" placeholder="Email"/>
-            </v-flex>
-            <v-flex xs12>
-              <v-text-field
-                type="tel"
-                prepend-icon="phone"
-                placeholder="(000) 000 - 0000"
-                mask="phone"
-              />
-            </v-flex>
-            <v-flex xs12>
-              <v-text-field prepend-icon="notes" placeholder="Notes"/>
-            </v-flex>
-          </v-layout>
-        </v-container>
-        <v-card-actions>
-          <v-btn flat color="primary">More</v-btn>
-          <v-spacer/>
-          <v-btn flat color="primary" @click="dialog = false">Cancel</v-btn>
-          <v-btn flat @click="dialog = false">Save</v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
-  </v-app>
+  <div>
+    <div class="editor">
+      <button @click="showEditor = !showEditor">Edit</button>
+      <div v-if="showEditor" class="editor__editor">
+        <form @submit.prevent="onSubmit">
+          <input v-model="meta.title">
+          <input v-model="meta.description">
+          <DynamicFieldEditor :fields="meta.fields"/>
+          <button type="submit">Update</button>
+          <button type="button" @click="showEditor = !showEditor">Cancel</button>
+        </form>
+      </div>
+      <div class="editor__display">
+        <DynamicField :fields="meta.fields"/>
+      </div>
+    </div>
+    <!-- <div class="metabox">
+      <button class="metabox__toggle" @click="showMeta = !showMeta">Meta Toggle</button>
+      <div v-if="showMeta" class="metabox__container">
+        <header class="metabox__header">Page Meta:</header>
+        <div class="metabox__body">{{ meta }}</div>
+      </div>
+    </div>-->
+  </div>
 </template>
 
 <script>
+import DynamicField from '~/components/dynamic-field/DynamicField.vue'
+import DynamicFieldEditor from '~/components/dynamic-field/DynamicFieldEditor.vue'
+import pageSEO from '~/mixins/pageSEO.js'
+
 export default {
+  name: 'PageEditor',
+  components: { DynamicField, DynamicFieldEditor },
+  mixins: [pageSEO],
   props: {
-    source: {
-      type: String,
-      default: 'source'
+    meta: {
+      type: Object,
+      required: true,
+      default: () => {}
     }
   },
-  data: () => ({
-    dialog: false,
-    drawer: null,
-    items: [
-      { icon: 'contacts', text: 'Contacts' },
-      { icon: 'history', text: 'Frequently contacted' },
-      { icon: 'content_copy', text: 'Duplicates' },
-      {
-        icon: 'keyboard_arrow_up',
-        'icon-alt': 'keyboard_arrow_down',
-        text: 'Labels',
-        model: true,
-        children: [{ icon: 'add', text: 'Create label' }]
-      },
-      {
-        icon: 'keyboard_arrow_up',
-        'icon-alt': 'keyboard_arrow_down',
-        text: 'More',
-        model: false,
-        children: [
-          { text: 'Import' },
-          { text: 'Export' },
-          { text: 'Print' },
-          { text: 'Undo changes' },
-          { text: 'Other contacts' }
-        ]
-      },
-      { icon: 'settings', text: 'Settings' },
-      { icon: 'chat_bubble', text: 'Send feedback' },
-      { icon: 'help', text: 'Help' },
-      { icon: 'phonelink', text: 'App downloads' },
-      { icon: 'keyboard', text: 'Go to the old version' }
-    ]
-  })
+  data() {
+    return {
+      showMeta: false,
+      showEditor: true
+    }
+  }
 }
 </script>
+
+<style lang="scss" scoped>
+.metabox {
+  position: fixed;
+  z-index: 100;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgb(240, 240, 240);
+  color: gray;
+
+  &__container {
+    max-width: 800px;
+    padding: 1rem;
+    margin: 0 auto;
+  }
+
+  &__header {
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+}
+
+.full {
+  width: 100%;
+  min-height: 100px;
+}
+</style>
