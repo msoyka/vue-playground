@@ -1,5 +1,5 @@
-import TextField from '~/components/text/TextField.vue'
-import BannerField from '~/components/banner/BannerField.vue'
+import TextField from './text/TextField.vue'
+import BannerField from './banner/BannerField.vue'
 
 const registeredComponents = {
   TextField,

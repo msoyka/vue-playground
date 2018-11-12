@@ -1,6 +1,6 @@
 <template>
   <div>
-    <DynamicField :fields="meta.fields"/>
+    <DynamicFields :fields="fields"/>
     <!-- <div class="editor">
       <button @click="showEditor = !showEditor">Edit</button>
       <div v-if="showEditor" class="editor__editor">
@@ -27,12 +27,12 @@
 </template>
 
 <script>
-import DynamicField from '~/components/dynamic-field/DynamicField.vue'
+import DynamicFields from '~/components/dynamic-fields/DynamicFields.vue'
 import pageSEO from '~/mixins/pageSEO.js'
 
 export default {
   name: 'PageEditor',
-  components: { DynamicField },
+  components: { DynamicFields },
   mixins: [pageSEO],
   props: {
     meta: {
@@ -44,6 +44,11 @@ export default {
   data() {
     return {
       showMeta: false
+    }
+  },
+  computed: {
+    fields() {
+      return this.meta.fields
     }
   }
 }

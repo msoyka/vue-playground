@@ -1,6 +1,6 @@
 
 <script>
-import { componentLookup } from '~/components/registeredComponents.js'
+import { componentLookup } from '~/components/core/registeredCoreComponents.js'
 import EditableFieldTemplate from './EditableFieldTemplate.vue'
 
 export default {
