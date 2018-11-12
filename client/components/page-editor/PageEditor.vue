@@ -1,6 +1,7 @@
 <template>
   <div>
-    <div class="editor">
+    <DynamicField :fields="meta.fields"/>
+    <!-- <div class="editor">
       <button @click="showEditor = !showEditor">Edit</button>
       <div v-if="showEditor" class="editor__editor">
         <form @submit.prevent="onSubmit">
@@ -14,7 +15,7 @@
       <div class="editor__display">
         <DynamicField :fields="meta.fields"/>
       </div>
-    </div>
+    </div>-->
     <!-- <div class="metabox">
       <button class="metabox__toggle" @click="showMeta = !showMeta">Meta Toggle</button>
       <div v-if="showMeta" class="metabox__container">
@@ -27,12 +28,11 @@
 
 <script>
 import DynamicField from '~/components/dynamic-field/DynamicField.vue'
-import DynamicFieldEditor from '~/components/dynamic-field/DynamicFieldEditor.vue'
 import pageSEO from '~/mixins/pageSEO.js'
 
 export default {
   name: 'PageEditor',
-  components: { DynamicField, DynamicFieldEditor },
+  components: { DynamicField },
   mixins: [pageSEO],
   props: {
     meta: {
@@ -43,8 +43,7 @@ export default {
   },
   data() {
     return {
-      showMeta: false,
-      showEditor: true
+      showMeta: false
     }
   }
 }

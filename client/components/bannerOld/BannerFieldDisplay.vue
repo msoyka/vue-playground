@@ -6,15 +6,10 @@
 </template>
 
 <script>
-import BannerFieldEditor from './BannerFieldEditor.vue'
-
+import { BANNER_FIELD_PROPS } from './bannerFieldConfig.js'
 export default {
-  name: 'BannerField',
-  editor: BannerFieldEditor,
-  props: {
-    heading: { type: String, required: false, default: 'Banner heading' },
-    subheading: { type: String, required: false, default: 'Banner subheading' }
-  },
+  name: 'BannerFieldDisplay',
+  props: BANNER_FIELD_PROPS,
   computed: {
     backgroundImageStyles() {
       return 'background-color: rgb(240, 240, 240)'
