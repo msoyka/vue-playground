@@ -1,8 +1,6 @@
-import TextField from './text/TextField.vue'
 import BannerField from './banner/BannerField.vue'
 
 const registeredComponents = {
-  TextField,
   BannerField
 }
 

@@ -16,14 +16,6 @@
           },
           "key": "smlieytvqi",
           "edit": true
-        },
-        {
-          "type": "TextField",
-          "data": {
-            "text": "This is the text"
-          },
-          "key": "bv35sx7cg2",
-          "edit": true
         }
       ]
     },

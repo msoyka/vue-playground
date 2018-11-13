@@ -5,21 +5,27 @@ import { componentLookup } from '~/components/core/registeredCoreComponents.js'
 export default {
   name: 'StaticField',
   props: {
-    type: {
-      type: String,
-      required: true
-    },
-    data: {
+    field: {
       type: Object,
       required: true,
       default: () => {}
     }
   },
+  computed: {
+    type() {
+      return this.field.type
+    },
+    data() {
+      return this.field.data
+    },
+    component() {
+      return componentLookup(this.type)
+    }
+  },
   render(h) {
-    const { type, data } = this
+    const { data, component } = this
     try {
-      const ref = componentLookup(type)
-      return h(ref, { props: data })
+      return h(component, { props: data })
     } catch (error) {
       console.error(`${error.name}: ${error.message}`)
     }

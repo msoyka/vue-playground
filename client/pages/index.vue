@@ -4,11 +4,11 @@
 
 <script>
 import PageEditor from '~/components/page-editor/PageEditor.vue'
-import getPageMeta from '~/mixins/getPageMeta.js'
+import pageMeta from '~/mixins/pageMeta.js'
 
 export default {
   layout: 'admin',
   components: { PageEditor },
-  mixins: [getPageMeta]
+  mixins: [pageMeta]
 }
 </script>
