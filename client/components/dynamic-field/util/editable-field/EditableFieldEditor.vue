@@ -14,16 +14,21 @@
         <v-toolbar-title>Editor</v-toolbar-title>
         <v-spacer/>
         <v-toolbar-items>
-          <v-btn dark flat @click="toggleedit">Save</v-btn>
+          <v-btn dark flat @click="toggleedit">Accept</v-btn>
+          <v-btn dark flat @click="toggleedit">Reset</v-btn>
         </v-toolbar-items>
       </v-toolbar>
       <v-card-text>
         <v-container fluid grid-list-lg>
           <v-layout row wrap="true">
-            <v-flex xs4>Editor:
+            <v-flex xs4>
+              <h4>Editor:</h4>
+              <hr>
               <component :is="editor" :data="data"/>
             </v-flex>
-            <v-flex xs8>Preview:
+            <v-flex xs8>
+              <h4>Preview:</h4>
+              <hr>
               <component :is="preview" v-bind="data"/>
             </v-flex>
           </v-layout>

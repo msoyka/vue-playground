@@ -10,7 +10,7 @@
 
 <script>
 import StaticField from '~/components/dynamic-field/util/static-field/StaticField.vue'
-import EditableFieldEditor from './/EditableFieldEditor.vue'
+import EditableFieldEditor from './EditableFieldEditor.vue'
 
 export default {
   name: 'EditableField',

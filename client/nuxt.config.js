@@ -69,7 +69,7 @@ module.exports = {
   ** Dynamic Route Generation
   */
   generate: {
-    routes: ['/about', '/contact']
+    routes: []
   },
 
   /*

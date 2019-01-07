@@ -32,7 +32,7 @@
       </v-toolbar-items>
     </v-toolbar>
     <v-content>
-      <v-container fluid>
+      <v-container fill-height fluid pa-0>
         <nuxt/>
       </v-container>
     </v-content>

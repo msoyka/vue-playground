@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h6>Banner Field Editor</h6>
     <input v-model="data.heading">
     <input v-model="data.subheading">
   </div>
